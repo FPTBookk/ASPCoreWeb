@@ -11,9 +11,9 @@ namespace FPTBOK.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly DbtestContext _context;
+        private readonly FPTDTBContext _context;
 
-        public CategoryController(DbtestContext context)
+        public CategoryController(FPTDTBContext context)
         {
             _context = context;
         }
@@ -21,20 +21,20 @@ namespace FPTBOK.Controllers
         // GET: Category
         public async Task<IActionResult> Index()
         {
-              return _context.Category != null ? 
-                          View(await _context.Category.ToListAsync()) :
-                          Problem("Entity set 'DbtestContext.Category'  is null.");
+              return _context.Categories != null ? 
+                          View(await _context.Categories.ToListAsync()) :
+                          Problem("Entity set 'FPTDTBContext.Categories'  is null.");
         }
 
         // GET: Category/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Category == null)
+            if (id == null || _context.Categories == null)
             {
                 return NotFound();
             }
 
-            var category = await _context.Category
+            var category = await _context.Categories
                 .FirstOrDefaultAsync(m => m.CategoryId == id);
             if (category == null)
             {
@@ -69,12 +69,12 @@ namespace FPTBOK.Controllers
         // GET: Category/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Category == null)
+            if (id == null || _context.Categories == null)
             {
                 return NotFound();
             }
 
-            var category = await _context.Category.FindAsync(id);
+            var category = await _context.Categories.FindAsync(id);
             if (category == null)
             {
                 return NotFound();
@@ -120,12 +120,12 @@ namespace FPTBOK.Controllers
         // GET: Category/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Category == null)
+            if (id == null || _context.Categories == null)
             {
                 return NotFound();
             }
 
-            var category = await _context.Category
+            var category = await _context.Categories
                 .FirstOrDefaultAsync(m => m.CategoryId == id);
             if (category == null)
             {
@@ -140,14 +140,14 @@ namespace FPTBOK.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Category == null)
+            if (_context.Categories == null)
             {
-                return Problem("Entity set 'DbtestContext.Category'  is null.");
+                return Problem("Entity set 'FPTDTBContext.Categories'  is null.");
             }
-            var category = await _context.Category.FindAsync(id);
+            var category = await _context.Categories.FindAsync(id);
             if (category != null)
             {
-                _context.Category.Remove(category);
+                _context.Categories.Remove(category);
             }
             
             await _context.SaveChangesAsync();
@@ -156,7 +156,7 @@ namespace FPTBOK.Controllers
 
         private bool CategoryExists(int id)
         {
-          return (_context.Category?.Any(e => e.CategoryId == id)).GetValueOrDefault();
+          return (_context.Categories?.Any(e => e.CategoryId == id)).GetValueOrDefault();
         }
     }
 }

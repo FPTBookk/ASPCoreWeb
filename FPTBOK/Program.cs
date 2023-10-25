@@ -2,8 +2,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<DbtestContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DbtestContext") ?? throw new InvalidOperationException("Connection string 'DbtestContext' not found.")));
 var connectionTestDbConnection = builder.Configuration.GetConnectionString("MyConnect");
 
 builder.Services.AddDbContext<FPTBOK.Models.FPTDTBContext>(options =>
