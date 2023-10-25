@@ -60,7 +60,7 @@ namespace BookFPTShop.Models
             modelBuilder.Entity<OrderBook>(entity =>
             {
                 entity.HasKey(e => e.OrderId)
-                    .HasName("PK__OrderBoo__C3905BAF953D35AE");
+                    .HasName("PK__OrderBoo__C3905BAFBCF61AF2");
 
                 entity.Property(e => e.OrderId).ValueGeneratedNever();
             });
