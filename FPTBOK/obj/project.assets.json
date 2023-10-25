@@ -10688,24 +10688,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kidsu\\.nuget\\packages\\": {}
+    "C:\\Users\\84947\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBok\\FPTBOK.csproj",
+      "projectUniqueName": "D:\\gitFPT\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj",
       "projectName": "FPTBOK",
-      "projectPath": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBok\\FPTBOK.csproj",
-      "packagesPath": "C:\\Users\\kidsu\\.nuget\\packages\\",
-      "outputPath": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBok\\obj\\",
+      "projectPath": "D:\\gitFPT\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj",
+      "packagesPath": "C:\\Users\\84947\\.nuget\\packages\\",
+      "outputPath": "D:\\gitFPT\\ASPCoreWeb\\FPTBOK\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kidsu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\84947\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -10764,7 +10766,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.415\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

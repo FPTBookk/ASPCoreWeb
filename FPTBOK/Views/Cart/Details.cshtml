@@ -1,4 +1,4 @@
-@model FPTBOK.Models.Book
+@model FPTBOK.Models.Cart
 
 @{
     Layout = null;
@@ -12,40 +12,34 @@
     <title>Details</title>
 </head>
 <body>
-@* <commemia> *@
+
 <div>
-    <h4>Book</h4>
+    <h4>Cart</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.DisplayNameFor(model => model.BookId)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
+            @Html.DisplayFor(model => model.BookId)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+            @Html.DisplayNameFor(model => model.Quantity)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+            @Html.DisplayFor(model => model.Quantity)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageBook)
+            @Html.DisplayNameFor(model => model.TotalPrice)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageBook)
+            @Html.DisplayFor(model => model.TotalPrice)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descript)
+            @Html.DisplayNameFor(model => model.Order)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descript)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Category.CategoryId)
+            @Html.DisplayFor(model => model.Order.OrderId)
         </dd>
     </dl>
 </div>
