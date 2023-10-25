@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace FPTBOK.Models
 {
     [Table("Cart")]
+    // concac
     public partial class Cart
     {
         [Key]
