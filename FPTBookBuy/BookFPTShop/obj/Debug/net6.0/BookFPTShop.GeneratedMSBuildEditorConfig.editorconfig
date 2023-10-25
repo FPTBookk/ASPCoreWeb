@@ -8,41 +8,61 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookFPTShop
 build_property.RootNamespace = BookFPTShop
-build_property.ProjectDir = D:\ASPdotnet\ASM1670\ASPCoreWeb\FPTBookBuy\BookFPTShop\
+build_property.ProjectDir = D:\1670(Application Development)\gitfptbook\ASPCoreWeb\FPTBookBuy\BookFPTShop\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\ASPdotnet\ASM1670\ASPCoreWeb\FPTBookBuy\BookFPTShop
+build_property.MSBuildProjectDirectory = D:\1670(Application Development)\gitfptbook\ASPCoreWeb\FPTBookBuy\BookFPTShop
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/ASPdotnet/ASM1670/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Home/Index.cshtml]
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASPdotnet/ASM1670/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Home/Privacy.cshtml]
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASPdotnet/ASM1670/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Shared/adminLO.cshtml]
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/OrderBook/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCb29rXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/OrderBook/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCb29rXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/OrderBook/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCb29rXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/OrderBook/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCb29rXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/OrderBook/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcT3JkZXJCb29rXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Shared/adminLO.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXGFkbWluTE8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASPdotnet/ASM1670/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Shared/Error.cshtml]
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASPdotnet/ASM1670/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASPdotnet/ASM1670/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/_ViewImports.cshtml]
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASPdotnet/ASM1670/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/_ViewStart.cshtml]
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/ASPdotnet/ASM1670/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Shared/_Layout.cshtml]
+[D:/1670(Application Development)/gitfptbook/ASPCoreWeb/FPTBookBuy/BookFPTShop/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-5ri7bsd4qx
