@@ -1,4 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionTestDbConnection = builder.Configuration.GetConnectionString("MyConnect");
+
+builder.Services.AddDbContext<BookFPTShop.Models.FPTDTBContext>(options =>
+   options.UseSqlServer(connectionTestDbConnection));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
