@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj": {}
+    "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBok\\FPTBOK.csproj": {}
   },
   "projects": {
-    "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj": {
+    "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBok\\FPTBOK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj",
+        "projectUniqueName": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBok\\FPTBOK.csproj",
         "projectName": "FPTBOK",
-        "projectPath": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj",
+        "projectPath": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBok\\FPTBOK.csproj",
         "packagesPath": "C:\\Users\\kidsu\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\obj\\",
+        "outputPath": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBok\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kidsu\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -37,6 +37,28 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.16, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
