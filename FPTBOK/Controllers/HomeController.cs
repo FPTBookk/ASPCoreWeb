@@ -1,23 +1,25 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using FPTBOK.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FPTBOK.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
+    private readonly testASMContext _context;
+    public HomeController(ILogger<HomeController> logger,testASMContext context )
     {
         _logger = logger;
+        _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
-        // hello
-        //cc
+        return _context.Products != null ? 
+                          View(await _context.Products.ToListAsync()) :
+                          Problem("Entity set 'testASMContext.Products'  is null.");
     }
 
     public IActionResult Privacy()
