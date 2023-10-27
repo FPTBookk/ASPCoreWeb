@@ -154,9 +154,76 @@ namespace FPTBOK.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public async Task<IActionResult> ViewStoreON()
+        {
+            if (_context.Categories != null)
+            {
+                var categories = await _context.Categories
+                    .Where(c => c.Status == "Yes")
+                    .ToListAsync();
+
+                return View(categories);
+            }
+            else
+            {
+                return Problem("Entity set 'BookContext.Categories' is null.");
+            }
+        }
+
         private bool CategoryExists(int id)
         {
           return (_context.Categories?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        // GET: Category/Edit/5
+        public async Task<IActionResult> SetCate(int? id)
+        {
+            if (id == null || _context.Categories == null)
+            {
+                return NotFound();
+            }
+
+            var category = await _context.Categories.FindAsync(id);
+            if (category == null)
+            {
+                return NotFound();
+            }
+            return View(category);
+        }
+
+        // POST: Category/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetCate(int id, [Bind("Id,Name,Detail,Status")] Category category)
+        {
+            if (id != category.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(category);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CategoryExists(category.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(category);
         }
     }
 }
