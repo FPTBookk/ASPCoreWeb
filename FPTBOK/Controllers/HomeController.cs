@@ -17,6 +17,7 @@ public class HomeController : Controller
     {
         return View();
         // hello
+        //cc
     }
 
     public IActionResult Privacy()
