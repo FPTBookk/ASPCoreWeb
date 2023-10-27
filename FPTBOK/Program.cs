@@ -1,13 +1,5 @@
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddDbContext<DPTDTBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DPTDTBContext") ?? throw new InvalidOperationException("Connection string 'DPTDTBContext' not found.")));
-var connectionTestDbConnection = builder.Configuration.GetConnectionString("MyConnect");
 
-builder.Services.AddDbContext<FPTBOK.Models.FPTDTBContext>(options =>
-   options.UseSqlServer(connectionTestDbConnection));
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
