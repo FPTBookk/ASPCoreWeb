@@ -18,5 +18,7 @@ namespace FPTBOK.Models
         public string Detail { get; set; } = null!;
         [StringLength(20)]
         public string Status { get; set; } = null!;
+         [InverseProperty("IdCatNavigation")]
+        public virtual ICollection<Product>? Products { get; set; } = new List<Product>();
     }
 }

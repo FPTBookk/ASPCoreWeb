@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace FPTBOK.Models
 {
@@ -11,6 +12,7 @@ namespace FPTBOK.Models
     public partial class Product
     {
         [Key]
+        [Column("ID")]
         public int Id { get; set; }
         [StringLength(50)]
         public string? Name { get; set; }
@@ -21,5 +23,12 @@ namespace FPTBOK.Models
         [StringLength(50)]
         public string? Image { get; set; }
         public int? IdCat { get; set; }
+
+        [ForeignKey("IdCat")]
+        [InverseProperty("Products")]
+        public virtual Category? IdCatNavigation { get; set; } = null!;
+
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
     }
 }

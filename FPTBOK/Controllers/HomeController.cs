@@ -17,9 +17,11 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        return _context.Products != null ? 
-                          View(await _context.Products.ToListAsync()) :
-                          Problem("Entity set 'testASMContext.Products'  is null.");
+        // return _context.Products != null ? 
+        //                   View(await _context.Products.ToListAsync()) :
+        //                   Problem("Entity set 'testASMContext.Products'  is null.");
+        var testContext = _context.Products.Include(b => b.IdCatNavigation);
+        return View(await testContext.ToListAsync());
     }
 
     public IActionResult Privacy()

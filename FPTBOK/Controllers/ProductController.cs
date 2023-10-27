@@ -12,18 +12,27 @@ namespace FPTBOK.Controllers
     public class ProductController : Controller
     {
         private readonly testASMContext _context;
+         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductController(testASMContext context)
+        public ProductController(testASMContext context, IWebHostEnvironment webHostEnvironment)
         {
+            _webHostEnvironment = webHostEnvironment;
             _context = context;
         }
-
+        // get file name 
+         private string GetUniqueFileName(string fileName)
+        {
+            fileName = Path.GetFileName(fileName);
+            return Path.GetFileNameWithoutExtension(fileName)
+                + "_"
+                + Guid.NewGuid().ToString().Substring(0, 4)
+                + Path.GetExtension(fileName);
+        }
         // GET: Product
         public async Task<IActionResult> Index()
         {
-              return _context.Products != null ? 
-                          View(await _context.Products.ToListAsync()) :
-                          Problem("Entity set 'testASMContext.Products'  is null.");
+             var testContext = _context.Products.Include(b => b.IdCatNavigation);
+               return View(await testContext.ToListAsync());
         }
 
         // GET: Product/Details/5
@@ -47,6 +56,7 @@ namespace FPTBOK.Controllers
         // GET: Product/Create
         public IActionResult Create()
         {
+             ViewData["IdCat"] = new SelectList(_context.Categories, "Id", "Name");
             return View();
         }
 
@@ -55,10 +65,21 @@ namespace FPTBOK.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Price,Image,IdCat")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Price,Image,IdCat,ImageFile")] Product product)
         {
-            if (ModelState.IsValid)
+           if (ModelState.IsValid)
             {
+                string uniqueFilename = GetUniqueFileName(product.ImageFile.FileName);
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+                string filePath = Path.Combine(uploadsFolder, uniqueFilename);
+
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await product.ImageFile.CopyToAsync(fileStream);
+                }
+
+                product.Image = uniqueFilename;
+
                 _context.Add(product);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -69,6 +90,7 @@ namespace FPTBOK.Controllers
         // GET: Product/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+             ViewData["IdCat"] = new SelectList(_context.Categories, "Id", "Name");
             if (id == null || _context.Products == null)
             {
                 return NotFound();
@@ -87,13 +109,26 @@ namespace FPTBOK.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Price,Image,IdCat")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Description,Price,Image,IdCat,ImageFile")] Product product)
         {
+             
+
             if (id != product.Id)
             {
                 return NotFound();
             }
+                
+            string uniqueFilename = GetUniqueFileName(product.ImageFile.FileName);
+            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+            string filePath = Path.Combine(uploadsFolder, uniqueFilename);
 
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await product.ImageFile.CopyToAsync(fileStream);
+                }
+
+                product.Image = uniqueFilename;
+                
             if (ModelState.IsValid)
             {
                 try

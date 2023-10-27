@@ -1,7 +1,7 @@
 @model FPTBOK.Models.Product
 
 @{
-    Layout = null;
+    @* Layout = null; *@
 }
 
 <!DOCTYPE html>
@@ -39,7 +39,9 @@
             @Html.DisplayNameFor(model => model.Image)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Image)
+             <div class="img-box">
+                    <img src="~/uploads/@Html.DisplayFor(model => model.Image)" style="width:100px; height:100px" alt="">
+                </div>
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.IdCat)

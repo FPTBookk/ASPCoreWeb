@@ -1,23 +1,16 @@
 @model FPTBOK.Models.Product
 
 @{
-    Layout = null;
+    @* Layout = null; *@
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
 <body>
 
 <h4>Product</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -35,15 +28,17 @@
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
+            <td>
+                <img src="~/uploads/@Html.DisplayFor(modelItem => Model.Image)" width="100" height="100" alt="">
+            </td>
+              <div class="form-group">
+                <label asp-for="ImageFile"> Choose a img</label>
+                <input type="File" name="ImageFile"class="form-control" />
+                <span asp-validation-for="Image" name="ImageFile" class="form-control-file"></span>
             </div>
             <div class="form-group">
                 <label asp-for="IdCat" class="control-label"></label>
-                <input asp-for="IdCat" class="form-control" />
-                <span asp-validation-for="IdCat" class="text-danger"></span>
+                <select asp-for="IdCat" class ="form-control" asp-items="ViewBag.IdCat"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
