@@ -101,6 +101,8 @@ namespace FPTBOK.Controllers
             {
                 return NotFound();
             }
+            var idCatList = _context.Categories.Where(c => c.Status == "Yes").ToList();
+            ViewData["IdCat"] = new SelectList(idCatList, "Id", "Name");
             return View(product);
         }
 
