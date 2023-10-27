@@ -23,6 +23,20 @@ public class HomeController : Controller
         var testContext = _context.Products.Include(b => b.IdCatNavigation);
         return View(await testContext.ToListAsync());
     }
+    public async Task<IActionResult> Search(string search)
+    {
+        
+        if (string.IsNullOrEmpty(search))
+            {
+                // Handle the case when no search term is provided. You can return a default view or a message.
+                return View(await _context.Products.Include(p => p.IdCatNavigation).ToListAsync());
+            }
+
+            var matchingProducts = _context.Products
+                .Include(p => p.IdCatNavigation).Where(p => p.Name.Contains(search) || p.Description.Contains(search))
+                .ToList();
+                return View(matchingProducts);
+    }
 
     public IActionResult Privacy()
     {
