@@ -31,7 +31,6 @@ public class HomeController : Controller
                 // Handle the case when no search term is provided. You can return a default view or a message.
                 return View(await _context.Products.Include(p => p.IdCatNavigation).ToListAsync());
             }
-
             var matchingProducts = _context.Products
                 .Include(p => p.IdCatNavigation).Where(p => p.Name.Contains(search) || p.Description.Contains(search))
                 .ToList();

@@ -19,7 +19,7 @@ namespace FPTBOK.Models
         [StringLength(50)]
         public string? Description { get; set; }
         [Column(TypeName = "decimal(18, 0)")]
-        public decimal? Price { get; set; }
+        public decimal Price { get; set; }
         [StringLength(50)]
         public string? Image { get; set; }
         public int? IdCat { get; set; }
@@ -30,5 +30,9 @@ namespace FPTBOK.Models
 
         [NotMapped]
         public IFormFile ImageFile { get; set; }
+    
+        [InverseProperty("IdProNavigation")]
+         public virtual ICollection<Cart>? Carts {get;set;} = new List<Cart>();
+    
     }
 }
