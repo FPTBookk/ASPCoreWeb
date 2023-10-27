@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj": {}
+    "D:\\1670(Application Development)\\gitFPT\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj": {}
   },
   "projects": {
-    "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj": {
+    "D:\\1670(Application Development)\\gitFPT\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj",
+        "projectUniqueName": "D:\\1670(Application Development)\\gitFPT\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj",
         "projectName": "FPTBOK",
-        "projectPath": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj",
-        "packagesPath": "C:\\Users\\kidsu\\.nuget\\packages\\",
-        "outputPath": "D:\\ASPdotnet\\ASM1670\\ASPCoreWeb\\FPTBOK\\obj\\",
+        "projectPath": "D:\\1670(Application Development)\\gitFPT\\ASPCoreWeb\\FPTBOK\\FPTBOK.csproj",
+        "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
+        "outputPath": "D:\\1670(Application Development)\\gitFPT\\ASPCoreWeb\\FPTBOK\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\kidsu\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +44,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.24, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[6.0.24, )"
@@ -65,8 +79,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -78,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.415\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
