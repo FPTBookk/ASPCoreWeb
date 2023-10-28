@@ -49,7 +49,7 @@ namespace FPTBOK.Controllers
             {
                 return NotFound();
             }
-
+            ViewBag.cat = _context.Categories.FirstOrDefault(c=> c.Id == product.IdCat);
             return View(product);
         }
 
