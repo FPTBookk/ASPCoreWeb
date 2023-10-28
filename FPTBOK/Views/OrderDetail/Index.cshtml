@@ -1,55 +1,57 @@
 @model IEnumerable<FPTBOK.Models.OrderDetail>
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/adminLO.cshtml";
 }
 
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Order Details</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 </head>
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdProOrderNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdOrderNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdProOrderNavigation.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdOrderNavigation.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="container mt-4 border p-4">
+        <h1>Order Details</h1>
+        <p>
+            <a class="btn btn-primary" asp-action="Create">Create New</a>
+        </p>
+        <table class="table" id="dataTable">
+            <thead>
+                <tr>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Product ID
+                    </th>
+                    <th>
+                        Order ID
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdProOrderNavigation.Id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdOrderNavigation.Id)
+                        </td>
+                        <td>
+                            <!-- Add any additional buttons or links here -->
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

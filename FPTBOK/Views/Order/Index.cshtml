@@ -1,61 +1,76 @@
 @model IEnumerable<FPTBOK.Models.Order>
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/adminLO.cshtml";
 }
 
 <!DOCTYPE html>
-
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Order List</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <style>
+        /* CSS to create a border and spacing around the content */
+        .content-container {
+            border: 1px solid #ccc; /* Add a border with a light gray color */
+            padding: 20px; /* Add some padding for spacing */
+            border-radius: 10px; /* Optional: Add rounded corners */
+        }
+    </style>
 </head>
+
 <body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.UserId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TimeOrder)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.UserId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeOrder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="content-container mt-4">
+        <h1>Order List</h1>
+        <p>
+            <a class="btn btn-primary" asp-action="Create">Create New</a>
+        </p>
+        <table class="table" id="dataTable">
+            <thead>
+                <tr>
+                    <th>
+                        User ID
+                    </th>
+                    <th>
+                        Time Order
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TimeOrder)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>
