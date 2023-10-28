@@ -15,12 +15,14 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(int page= 1, int pageSize= 4)
     {
         // return _context.Products != null ? 
         //                   View(await _context.Products.ToListAsync()) :
         //                   Problem("Entity set 'testASMContext.Products'  is null.");
-        var testContext = _context.Products.Include(b => b.IdCatNavigation);
+        var testContext = _context.Products.Include(b => b.IdCatNavigation).Skip((page - 1) * pageSize).Take(pageSize);
+        ViewBag.TotalPage = Math.Ceiling((double)_context.Products.Count() / pageSize);
+            ViewBag.Page = page;
         return View(await testContext.ToListAsync());
     }
     public async Task<IActionResult> Search(string search)
