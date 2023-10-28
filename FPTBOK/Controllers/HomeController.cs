@@ -20,6 +20,7 @@ public class HomeController : Controller
         // return _context.Products != null ? 
         //                   View(await _context.Products.ToListAsync()) :
         //                   Problem("Entity set 'testASMContext.Products'  is null.");
+          ViewBag.Categories = _context.Categories.ToList();
         var testContext = _context.Products.Include(b => b.IdCatNavigation).Skip((page - 1) * pageSize).Take(pageSize);
         ViewBag.TotalPage = Math.Ceiling((double)_context.Products.Count() / pageSize);
             ViewBag.Page = page;
@@ -38,7 +39,20 @@ public class HomeController : Controller
                 .ToList();
                 return View(matchingProducts);
     }
-
+// IndexCategory
+public async Task<IActionResult> IndexCategory(int categoryid)
+    {
+        
+        if (categoryid == 0)
+            {
+                // Handle the case when no search term is provided. You can return a default view or a message.
+                return View(await _context.Products.Include(p => p.IdCatNavigation).ToListAsync());
+            }
+        var matchingProducts = _context.Products
+            .Where(p => p.IdCat == categoryid)
+            .ToListAsync();
+        return View(await matchingProducts);
+    }
     public IActionResult Privacy()
     {
         return View();
