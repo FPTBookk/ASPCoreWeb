@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using FPTBOK.Models;
 
 namespace FPTBOK.Models
 {
@@ -20,7 +21,8 @@ namespace FPTBOK.Models
         public virtual DbSet<Category> Categories { get; set; } = null!;
         public virtual DbSet<Product> Products { get; set; } = null!;
         public virtual DbSet<Cart> Carts {get;set;} = null!;
-
+        public virtual DbSet<Order> Orders { get; set; }
+         public virtual DbSet<OrderDetail> OrderDetails { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             
@@ -37,5 +39,9 @@ namespace FPTBOK.Models
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<FPTBOK.Models.Order>? Order { get; set; }
+
+        public DbSet<FPTBOK.Models.OrderDetail>? OrderDetail { get; set; }
     }
 }

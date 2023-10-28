@@ -33,6 +33,9 @@ namespace FPTBOK.Models
     
         [InverseProperty("IdProNavigation")]
          public virtual ICollection<Cart>? Carts {get;set;} = new List<Cart>();
-    
+
+          [InverseProperty("IdProOrderNavigation")]
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+
     }
 }
