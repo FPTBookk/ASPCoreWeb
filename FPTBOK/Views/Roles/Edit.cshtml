@@ -1,0 +1,16 @@
+@model Microsoft.AspNetCore.Identity.IdentityRole;
+@{
+    Layout = "~/Views/Shared/testLO.cshtml";
+}
+
+<div class="container mt-4">
+    <h2>Edit Role</h2>
+
+    <form asp-action="Edit" asp-route-id="@Model.Id">
+        <div class="form-group">
+            <label for="roleName">Role Name</label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>

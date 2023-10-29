@@ -12,6 +12,7 @@ builder.Services.AddDbContext<FPTBOK.Models.testASMContext>(options =>
    options.UseSqlServer(connectionTestDbConnection));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+.AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<testASMContext>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
