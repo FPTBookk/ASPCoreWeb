@@ -1,7 +1,7 @@
 @model IEnumerable<FPTBOK.Models.Order>
 
 @{
-    Layout = "~/Views/Shared/adminLO.cshtml";
+    Layout = "~/Views/Shared/homepage.cshtml";
     
 }
 
@@ -26,7 +26,7 @@
     <div class="content-container mt-4">
         <h1>Order List</h1>
         <p>
-            <a class="btn btn-primary" asp-action="Create">Create New</a>
+
         </p>
         <table class="table" id="dataTable">
             <thead>
@@ -64,7 +64,7 @@
                         </td>
                         <td>
                             <a class="btn btn-secondary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
-                            <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                            <a class="btn btn-info" asp-action="Details" asp-controller="OrderDetail" asp-action="index" asp-route-id="@item.Id">Details</a>
                             <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>

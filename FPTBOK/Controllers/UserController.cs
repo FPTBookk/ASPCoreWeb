@@ -22,8 +22,11 @@ namespace FPTBOK.Controllers
 
         public IActionResult Index()
         {
+            if (User.Identity.IsAuthenticated && !User.IsInRole("Customer")){
             var users = _userManager.Users.ToList();
             return View(users);
+        }
+        return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Delete(string id)

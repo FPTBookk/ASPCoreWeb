@@ -21,9 +21,12 @@ namespace FPTBOK.Controllers
         // GET: Category
         public async Task<IActionResult> Index()
         {
+            if (User.Identity.IsAuthenticated && !User.IsInRole("Customer")){
               return _context.Categories != null ? 
                           View(await _context.Categories.ToListAsync()) :
                           Problem("Entity set 'testASMContext.Categories'  is null.");
+        }
+        return RedirectToAction("Index", "Home");
         }
 
         // GET: Category/Details/5

@@ -31,8 +31,12 @@ namespace FPTBOK.Controllers
         // GET: Product
         public async Task<IActionResult> Index()
         {
+            if (User.Identity.IsAuthenticated && !User.IsInRole("Customer")){
              var testContext = _context.Products.Include(b => b.IdCatNavigation);
                return View(await testContext.ToListAsync());
+            }
+            return RedirectToAction("Index", "Home");
+
         }
 
         // GET: Product/Details/5
@@ -56,7 +60,20 @@ namespace FPTBOK.Controllers
         // GET: Product/Create
         public IActionResult Create()
         {
-             ViewData["IdCat"] = new SelectList(_context.Categories, "Id", "Name");
+
+// if (_context.Categories != null)
+//             {
+//                 var categories = await _context.Categories
+//                     .Where(c => c.Status == "Yes")
+//                     .ToListAsync();
+
+//                 return View(categories);
+//             }
+//             else
+//             {
+//                 return Problem("Entity set 'BookContext.Categories' is null.");
+//             }
+             ViewData["IdCat"] = new SelectList(_context.Categories.Where(c => c.Status == "Yes"), "Id", "Name");
             return View();
         }
 
