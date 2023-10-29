@@ -1,89 +1,210 @@
 ﻿@model IEnumerable<FPTBOK.Models.Product>
 
 @{
-
+    Layout = "~/Views/Shared/homepage.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
 
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
 
-<body>
-    <div class="Container">
-        <div class="row-grid d-flex justify-content">
-            @foreach (var item in ViewBag.Categories)
-            {
-                <div class="col-md mb-3" style="border: 2px; margin: 25px">
-                    <a asp-controller="Home" asp-action="IndexCategory" asp-route-categoryid="@item.Id" class="btn btn-primary btn-block">
-                        @item.Name </a>
+  <div class="hero_area">
+    <div class="bg-box">
+      <img src="~/homepage/images/Book.jpg" alt="">
+    </div>
+
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Fiction Category
+                    </h1>
+                    <p>
+                     A fiction book is a type of book or story that is written about imaginary 
+                     characters and events and not based on real people and facts. Fiction books
+                      can be short stories or long novels, and they can belong to different genres,
+                       such as romance, science fiction, fantasy, thriller, etc. Fiction books are
+                        often written for entertainment purposes, but they can also convey important messages,
+                         themes, or insights about society, human nature, or history. Some examples of classic
+                          fiction books are To Kill a Mockingbird by Harper Lee, A Tale of Two Cities by Charles Dickens,
+                           1984 by George Orwell and Pride and Prejudice by Jane Austen.
+                    </p>
+                    <div class="btn-box">
+                    </div>
+                  </div>
                 </div>
-            }
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item ">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Manga 
+                    </h1>
+                    <p>
+                      Manga is a term that refers to Japanese comics or graphic novels that are usually drawn in a distinctive style and often have complex and engaging plots.
+                       Manga can cover a wide range of genres, such as romance, action, fantasy, horror, comedy, and more.
+                       Manga are typically serialized in large magazines that contain many stories, and some of them are 
+                       later collected into individual volumes. Manga are very popular in Japan and around the world, 
+                      and some of them are adapted into anime, which are animated shows or movies based on manga. Some examples
+                       of famous manga are Naruto, One Piece, Dragon Ball, Death Note, and Attack on Titan
+                    </p>
+                    <div class="btn-box">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7 col-lg-6 ">
+                  <div class="detail-box">
+                    <h1>
+                      Non fiction 
+                    </h1>
+                    <p>
+                      Nonfiction is a genre of literature that is based on facts, real events, and real people.
+                       Nonfiction texts are intended to inform and educate readers about a particular topic or
+                        various topics by presenting accurate and truthful information
+                      . Nonfiction texts can be divided into two main forms: literary nonfiction and informative nonfiction.
+                    </p>
+                    <div class="btn-box">
+                      <a href="" class="btn1">
+                        Order Now
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <ol class="carousel-indicators">
+            <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
+            <li data-target="#customCarousel1" data-slide-to="1"></li>
+            <li data-target="#customCarousel1" data-slide-to="2"></li>
+          </ol>
+        </div>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- offer section -->
+  <!-- end offer section -->
+
+
+  <!-- end food section -->
+
+  <!-- about section -->
+
+  < <section class="about_section layout_padding">
+    <div class="container  ">
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="~/homepage/images/Leonardo.png" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                We Are Feane
+              </h2>
+            </div>
+            <p>
+              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
+              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
+              the middle of text. All
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Leonardo_da_Vinci">
+              Read More
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <div>
+
+<div class="Container" >
+<div class="row-grid d-flex justify-content">
+   @foreach(var item in ViewBag.Categories){
+    <form formmethod="GET">
+    <div class="col-md mb-3" style="border: 2px; margin: 25px"> 
+    <button  asp-controller="Book" asp-action="Show" asp-route-id="@item.Id" class="btn btn-warning"> @item.Name </button>
+    </div>
+    </form>
+    }
+</div>
+</div>
+<section class="food_section layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2>
+                Our Menu
+            </h2>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+         {
+           <div class="col-md-6" style="border: 2px;">
+                <div class="img-box">
+                    <img src="~/uploads/@Html.DisplayFor(modelItem => item.Image)" style="width:500px; height:500px" alt="">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        @Html.DisplayFor(ModelItem => item.IdCatNavigation.Name)
+                        <a>nope</a>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </h5>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </p>
+                    <div class="options">   
+                        <h6>
+                            @item.Price.ToString("C") <!-- Assuming Price is a numeric field -->
+                        </h6>
+                        <form formaction="GET">
+                        <button class="btn btn-warning"  asp-controller="Book" asp-action="Details" asp-route-id="@item.Id">Details</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+   
+                 }
+        </div>
         </div>
     </div>
-    <p>
-        @* <a asp-action="Create">Create New</a> *@
-    </p>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Description)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Price)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Image)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IdCat)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Description)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Price)
-                    </td>
-                    <td>
-                        <div class="img-box">
-                            <img src="~/uploads/@Html.DisplayFor(modelItem => item.Image)" style="width:100px; height:100px"
-                                alt="">
-                        </div>
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IdCatNavigation.Name)
-                    </td>
-                    <td>
-                        @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</body>
+    </div>
+    </div>
+</section>
 
+@* </body> *@
+<style>
+    nav[aria-label="Page navigation"] {
+  display: flex;
+  justify-content: center;
+}
+
+</style>
 </html>
-<nav aria-label="Page navigation">
+<nav aria-label="Page navigation" style="align-items: center;">
     <ul class="pagination">
         @for (int i = 1; i <= ViewBag.TotalPage; i++)
         {
@@ -92,3 +213,4 @@
             </li>
         }
     </ul>
+</nav>
