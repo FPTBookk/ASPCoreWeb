@@ -23,26 +23,27 @@
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="UserId" class="control-label">User ID</label>
-                    <input asp-for="UserId" class="form-control" />
-                    <span asp-validation-for="UserId" class="text-danger"></span>
+                    <h2>Are you sure to purchase</h2>
+                    @* <label asp-for="UserId" class="control-label"></label> *@
+                    <input type="hidden"asp-for="UserId" class="form-control"value ="0" />
+                    @* <span asp-validation-for="UserId" class="text-danger"></span> *@
                 </div>
                 <div class="form-group">
-                    <label asp-for="TimeOrder" class="control-label">Order Time</label>
-                    <input asp-for="TimeOrder" class="form-control" type="datetime-local" />
-                    <span asp-validation-for="TimeOrder" class="text-danger"></span>
+                    @* <label asp-for="TimeOrder" class="control-label"></label> *@
+                    <input type="hidden" asp-for="TimeOrder" class="form-control"  value ="12/12/2012"/>
+                    @* <span asp-validation-for="TimeOrder" class="text-danger"></span> *@
                 </div>
                 <div class="form-group">
-                    <label asp-for="Address" class="control-label">Address</label>
-                    <input asp-for="Address" class="form-control" />
-                    <span asp-validation-for="Address" class="text-danger"></span>
+                    @* <label asp-for="Address" class="control-label"></label> *@
+                    <input type="hidden" asp-for="Address" class="form-control " value ="store 32/ NinhKieu/ Cantho"/>
+                    @* <span asp-validation-for="Address" class="text-danger"></span> *@
                 </div>
                 <div class="form-group">
-                    <label asp-for="Status" class="control-label">Status</label>
-                    <input asp-for="Status" class="form-control" />
-                    <span asp-validation-for="Status" class="text-danger"></span>
+                    @* <label asp-for="Status" class="control-label"></label> *@
+                    <input type="hidden" asp-for="Status" class="form-control "value ="0" />
+                    @* <span asp-validation-for="Status" class="text-danger"></span> *@
                 </div>
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary">Accept Purchase</button>
             </form>
         </div>
     </div>
