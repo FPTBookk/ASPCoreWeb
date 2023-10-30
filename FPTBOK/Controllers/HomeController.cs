@@ -20,7 +20,7 @@ public class HomeController : Controller
         // return _context.Products != null ? 
         //                   View(await _context.Products.ToListAsync()) :
         //                   Problem("Entity set 'testASMContext.Products'  is null.");
-          ViewBag.Categories = _context.Categories.ToList();
+          ViewBag.Categories = _context.Categories.ToList().Where(m => m.Status == "Yes");
         var testContext = _context.Products.Include(b => b.IdCatNavigation).Skip((page - 1) * pageSize).Take(pageSize);
         ViewBag.TotalPage = Math.Ceiling((double)_context.Products.Count() / pageSize);
             ViewBag.Page = page;

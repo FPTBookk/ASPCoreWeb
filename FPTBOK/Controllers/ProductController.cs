@@ -32,7 +32,7 @@ namespace FPTBOK.Controllers
         public async Task<IActionResult> Index()
         {
             if (User.Identity.IsAuthenticated && !User.IsInRole("Customer")){
-             var testContext = _context.Products.Include(b => b.IdCatNavigation);
+             var testContext = _context.Products.Include(b => b.IdCatNavigation.Status == "Yes");
                return View(await testContext.ToListAsync());
             }
             return RedirectToAction("Index", "Home");
