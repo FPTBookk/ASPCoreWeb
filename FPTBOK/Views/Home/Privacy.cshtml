@@ -1,9 +1,27 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "FPT BOOK";
+    Layout = "~/Views/Shared/homepage.cshtml";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>you must login to use the previous feature please Login before you continue.</p>
-<form formaction="GET">
-    <button class="nav-link" asp-area="Identity" asp-page="/Account/Login">Log in</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>@ViewData["Title"]</h1>
+    </header>
+
+    <main>
+        <p>You must log in to use the previous feature. Please log in before you continue.</p>
+        <form action="/Identity/Account/Login" method="get">
+            <button type="submit" class="btn btn-success">Log in</button>
+        </form>
+    </main>
+
+</body>
+</html>
