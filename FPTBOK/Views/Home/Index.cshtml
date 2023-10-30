@@ -144,9 +144,9 @@
    @foreach(var item in ViewBag.Categories){
     <form formmethod="GET">
     <div class="col-md mb-3" style="border: 2px; margin: 25px"> 
-    <button  asp-controller="Book" asp-action="Show" asp-route-id="@item.Id" class="btn btn-warning"> @item.Name </button>
+        <button asp-controller="Home" asp-action="IndexCategory" asp-route-id="@item.Id" class="btn btn-warning">@item.Name</button>
     </div>
-    </form>
+</form>
     }
 </div>
 </div>

@@ -40,18 +40,12 @@ public class HomeController : Controller
                 return View(matchingProducts);
     }
 // IndexCategory
-public async Task<IActionResult> IndexCategory(int categoryid)
+ public async Task<IActionResult> IndexCategory(int id)
     {
-        
-        if (categoryid == 0)
-            {
-                // Handle the case when no search term is provided. You can return a default view or a message.
-                return View(await _context.Products.Include(p => p.IdCatNavigation).ToListAsync());
-            }
-        var matchingProducts = _context.Products
-            .Where(p => p.IdCat == categoryid)
-            .ToListAsync();
-        return View(await matchingProducts);
+          
+        var testContext = _context.Products.Include(b => b.IdCatNavigation).Where(p => p.IdCatNavigation.Id == id);
+
+        return View(await testContext.ToListAsync());
     }
     public IActionResult Privacy()
     {
