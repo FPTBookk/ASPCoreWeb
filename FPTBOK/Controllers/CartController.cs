@@ -21,9 +21,14 @@ namespace FPTBOK.Controllers
         // GET: Cart
         public async Task<IActionResult> Index()
         {
+            if(User.Identity.IsAuthenticated){
             var testASMContext = _context.Carts.Include(c => c.IdProNavigation);
             return View(await testASMContext.ToListAsync());
-        }
+            }
+            return RedirectToAction("Privacy", "Home");
+            
+            
+            }
 
         // GET: Cart/Details/5
         public async Task<IActionResult> Details(int? id)
