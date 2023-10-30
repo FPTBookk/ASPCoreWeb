@@ -32,7 +32,7 @@ namespace FPTBOK.Controllers
         public async Task<IActionResult> Index()
         {
             if (User.Identity.IsAuthenticated && !User.IsInRole("Customer")){
-             var testContext = _context.Products.Include(b => b.IdCatNavigation.Status == "Yes");
+             var testContext = _context.Products.Include(b => b.IdCatNavigation);
                return View(await testContext.ToListAsync());
             }
             return RedirectToAction("Index", "Home");
@@ -174,19 +174,18 @@ namespace FPTBOK.Controllers
         // GET: Product/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Products == null)
+            if (_context.Products == null)
             {
-                return NotFound();
+                return Problem("Entity set 'testASMContext.Products'  is null.");
             }
-
-            var product = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            var product = await _context.Products.FindAsync(id);
+            if (product != null)
             {
-                return NotFound();
+                _context.Products.Remove(product);
             }
-
-            return View(product);
+            
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Product/Delete/5

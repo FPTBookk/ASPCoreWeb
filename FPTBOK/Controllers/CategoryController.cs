@@ -125,19 +125,18 @@ namespace FPTBOK.Controllers
         // GET: Category/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Categories == null)
+            if (_context.Categories == null)
             {
-                return NotFound();
+                return Problem("Entity set 'testASMContext.Categories'  is null.");
             }
-
-            var category = await _context.Categories
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (category == null)
+            var category = await _context.Categories.FindAsync(id);
+            if (category != null)
             {
-                return NotFound();
+                _context.Categories.Remove(category);
             }
-
-            return View(category);
+            
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Category/Delete/5

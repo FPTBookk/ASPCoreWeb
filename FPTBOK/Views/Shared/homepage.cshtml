@@ -58,6 +58,9 @@
                 <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/index">Profile</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" asp-area="" asp-controller="Cart" asp-action="index">Cart</a>
               </li>
               @if (User.IsInRole("Admin")){

@@ -52,6 +52,7 @@ namespace FPTBOK.Controllers
         // GET: Cart/Create
         public async Task<IActionResult> Create(int id)
         {
+            if(User.Identity.IsAuthenticated){
                 var cart = new Cart();
                 cart.ProductID = id;
                  var product = await _context.Products
@@ -61,8 +62,11 @@ namespace FPTBOK.Controllers
                 cart.UserId = User.Identity.Name;
                 _context.Add(cart);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-        
+                return RedirectToAction(nameof(Index));      
+            }else{
+                
+                return RedirectToAction("Privacy", "Home");
+            }
         }
 
         // POST: Cart/Create
@@ -73,7 +77,8 @@ namespace FPTBOK.Controllers
         public async Task<IActionResult> Create([Bind("Id,UserId,ProductID,Price")] Cart cart)
         {
             if (ModelState.IsValid)
-            {
+            {   
+                
                 _context.Add(cart);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
