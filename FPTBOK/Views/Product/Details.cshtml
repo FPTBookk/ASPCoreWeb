@@ -59,7 +59,7 @@
         </dl>
     </div>
     <div class="mt-4">
-        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+        @* <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a> *@
         <a asp-controller="Cart" asp-action="Create" asp-route-id="@Model?.Id" class="btn btn-success">Add To Cart</a>
         <a asp-action="Index" class="btn btn-secondary">Back to List</a>
     </div>
